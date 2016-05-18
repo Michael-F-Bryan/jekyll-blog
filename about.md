@@ -33,7 +33,7 @@ Some of My Better Work
 * A super useful web server I designed using Python and the [Flask][flask] web 
   framework to sit on my Raspberry Pi and give me details about the Pi, 
   similar to the Windows Task Manager, just by navigating to the Pi's IP 
-  address in a browser ([GitHub repository][statis-server]). 
+  address in a browser ([GitHub repository][status-server]). 
 * Another web scraper, this time to traverse the Curtin Blackboard system and
   download the lectures, tutorials, labs and other documents relevant to each
   of a student's units ([GitHub repository][blackboard-scraper]).
