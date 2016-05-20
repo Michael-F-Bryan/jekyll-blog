@@ -1,18 +1,19 @@
-SOURCE = ./*.md ./*.html ./posts/*
-PRODUCTION = production
-RM = rm- rf
+SOURCE := $(wildcard ./*.md ./*.html ./posts/*)
+OUTPUT := $(wildcard ./_site/*)
+PRODUCTION := production
+RM = rm -rf
 
 
-build: _site/*
+build: _site/index.html
 
-_site/index.html: $(SOURCE)
+$(OUTPUT): $(SOURCE)
 	jekyll build --incremental
 
 deploy:
 	git push $(PRODUCTION) master
 
 serve:
-	jekyll serve
+	jekyll serve --watch
 
 clean:
 	$(RM) ./_site
