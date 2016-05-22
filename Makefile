@@ -7,13 +7,13 @@ RM = rm -rf
 build: _site/index.html
 
 $(OUTPUT): $(SOURCE)
-	jekyll build --incremental
+	jekyll build 
 
 deploy:
 	git push $(PRODUCTION) master
 
 serve:
-	jekyll serve --watch
+	jekyll serve --watch --open-url
 
 clean:
 	$(RM) ./_site
