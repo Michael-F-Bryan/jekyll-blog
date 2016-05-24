@@ -21,3 +21,9 @@ sass:
   sass_dir: _sass
 kramdown:
   input: GFM
+
+# Include everything in the _pages directory
+include: ["_pages"] 
+
+# Make all links just use the page/post's title
+permalink: /:title/ 
