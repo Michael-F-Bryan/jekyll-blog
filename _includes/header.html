@@ -17,7 +17,7 @@
 
         <!-- All the main pages -->
         {% for my_page in site.pages %}
-          {% unless page.exclude_from_nav %}
+          {% unless my_page.exclude_from_nav %}
             {% if my_page.title %}
               <li>
                 <a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
