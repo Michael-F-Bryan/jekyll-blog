@@ -17,11 +17,13 @@
 
         <!-- All the main pages -->
         {% for my_page in site.pages %}
-        {% if my_page.title %}
-        <li>
-          <a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-        </li>
-        {% endif %}
+          {% unless page.exclude_from_nav %}
+            {% if my_page.title %}
+              <li>
+                <a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+              </li>
+            {% endif %}
+          {% endunless %}
         {% endfor %}
 
         <!-- The dropdown menu for posts -->
