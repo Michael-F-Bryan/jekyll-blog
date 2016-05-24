@@ -1265,7 +1265,8 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 36px;
+  font-size: 40px;
+  font-weight: bold;
 }
 h2,
 .h2 {
@@ -6773,7 +6774,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 130px;
+  margin-bottom: 160px;
 }
 .footer {
   position: absolute;
@@ -6781,4 +6782,9 @@ body {
   
   /* Set the fixed height of the footer here */
   height: 130px;
+}
+
+/* Indent all dd tags by 50 px */
+dd {
+margin-left: 2em;
 }

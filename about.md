@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 The Basics
-==========
+----------
 
 I'm currently a Mechanical Engineering student studying at Curtin University
 in Western Australia. Although I'm studying Engineering, I don't mind getting
