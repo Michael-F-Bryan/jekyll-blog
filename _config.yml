@@ -26,7 +26,7 @@ paginate: 5
 paginate_path: "/posts/page:num/"
 
 # Include everything in the _pages directory
-include: ["_pages"] 
+# include: ["_pages"] 
 
 # Make all links just use the page/post's title
 permalink: /:title/ 
