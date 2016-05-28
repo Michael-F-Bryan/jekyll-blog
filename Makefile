@@ -13,7 +13,7 @@ deploy:
 	git push $(PRODUCTION) master
 
 serve:
-	( sleep 1 && firefox 'http://localhost:4000/' ) &
+	( sleep 2 && firefox 'http://localhost:4000/' ) &
 	jekyll serve --watch 
 
 clean:

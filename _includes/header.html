@@ -26,14 +26,14 @@
           {% endunless %}
         {% endfor %}
 
-        <!-- The dropdown menu for posts -->
+        <!-- The dropdown menu for the 10 most recent posts -->
         <li class="dropdown">
           <a href="{{ site.baseurl }}/posts" role="button" aria-haspopup="true" aria-expanded="false">
             Posts
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            {% for post in site.posts %}
+            {% for post in site.posts limit:10 %}
             <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
             {% endfor %}
           </ul>
