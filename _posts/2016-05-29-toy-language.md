@@ -23,15 +23,19 @@ develops.
 Language Semantics
 ------------------
 
-* Statically typed ("int foo = 5" instead of "foo = 5")
+* Procedural
 * Compiled
 * Object Oriented, but more like Python where you can use them if you want, but
-    aren't forced to (like Java)
+    aren't forced to (i.e. Java)
 * Classes are implemented mainly as a dictionary (foo.bar would be equivalent
     to  foo['bar'])
-* Procedural
 * Strongly typed (compiler resists the temptation to guess what you are wanting
     to do, so adding a string and an integer will throw an error)
+* Infer type on definition, but can't change the type after that. Typing is 
+    done so that you can either tell the compiler the type of a variable when 
+    you first define it ("int i = 5"), otherwise the type will be inferred 
+    ("i = 5" means that i is an integer). If it can't be inferred confidently
+    then throw an error [NOTE: Does this conflict with the previous point?] 
 * Must have namespaces
 * Should be able to use C libraries
 * Garbage Collected
@@ -54,6 +58,47 @@ Implementation
 * Use LLVM as an IR and for compiling to binaries
 * Python used for lexing/parsing the source code into LLVM Intermediate
     Representation form.
+
+Some Examples
+-------------
+
+Function Definitions:
+
+    def foo(int a, int b, str msg="blah"):
+        """
+        This is a string describing the foo function. "msg" has a default 
+        value.  
+        """
+        print(msg)
+        return a + b
+
+Looping:
+
+    list[int] some_list = [1, 2, 3, 4]
+
+    for int i in some_list:
+        # Do stuff
+        print(i*i)
+
+Conditionals:
+
+    int age = 42
+
+    if age <= 5:
+        print('young child')
+    elif 5 < age <= 18:
+        print("student")
+    else:
+        print('adult')
+
+Class definitions:
+
+    class Cat:
+        def __init__(self, str name):
+            str self.name = name
+
+        def make_sound(self):
+            print(self.name, 'says "meow"')
 
 
 General Plan for the Project
