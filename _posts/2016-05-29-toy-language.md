@@ -66,8 +66,8 @@ Function Definitions:
 
     def foo(int a, int b, str msg="blah"):
         """
-        This is a string describing the foo function. "msg" has a default 
-        value.  
+        This is a string describing the foo function. 
+        "msg" has a default value.  
         """
         print(msg)
         return a + b
