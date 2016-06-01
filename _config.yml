@@ -21,6 +21,7 @@ sass:
   sass_dir: _sass
 kramdown:
   input: GFM
+highlighter: pygments
 
 paginate: 5
 paginate_path: "/posts/page:num/"
