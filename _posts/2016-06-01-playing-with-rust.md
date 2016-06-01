@@ -186,17 +186,15 @@ A Note On `.unwrap()`
 
 Instead of using Exceptions and try/catch blocks like Java and Python do,
 success or failure of a function is usually reported through what is returned.
-The `.unwraps()` method will "unwrap" the return value of a function into
-either the requested item (e.g. a byte stream containing a request from a
-client) or some sort of error thing, usually `Err(e)`. 
-
-If you want to check for errors, you'll usually employ a `match` block (like
-C's `switch` statement).
+The return value of your function is normally wrapped by an `Option` or a
+`Result`. For example, when you try to open a file, you recieve a result
+that'll either give you a file handler (`Ok(file_handler)`), or give you an
+error message (`Err(e)`).
 
 {% highlight rust %}
 let f = File::new("blah.txt");
 
-match f.unwrap() {
+match f {
     Ok(file_handle) => let f = file_handle,
     Err(e) => println!("Got an error: {}", e),
 }
@@ -206,7 +204,7 @@ This is usually merged into one expression with a `let match`:
 
 
 {% highlight rust %}
-let f = match File::new("blah.txt").unwrap() {
+let f = match File::new("blah.txt") {
     Ok(file_handle) => file_handler,
     Err(e) => println!("Got an error: {}", e),
 }
@@ -227,6 +225,20 @@ let x = {
 
 // x == baz()
 {% endhighlight %}
+
+As useful as this explicit checking to see if a function did what you expected
+it to may be, it gets pretty repetitive after a while. Therefore a couple
+helper methods were created, one of which is called `.unwrap()`. The unwrap
+will interpret the `Result` or `Option` and either give you the thing you
+requested or `panic!()` (i.e. Blow up and give you an error message).
+
+There is also a `.unwrap_or(default)` method that'll give you the thing you
+wanted or a default value if there is an error. Using this you have a chance to
+either exit gracefully or recover from the error, compared to crashing the
+program like `.unwrap()` does.
+
+For more information on how error handling works in Rust, I recommend that you
+consult the [official documentation][docs].
 
 
 Source Code
@@ -292,3 +304,4 @@ fn main() {
 
 
 [rust]: https://www.rust-lang.org/
+[docs]: https://doc.rust-lang.org/book/error-handling.html#the-basics
