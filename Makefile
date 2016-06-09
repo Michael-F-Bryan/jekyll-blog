@@ -12,7 +12,7 @@ deploy: not_dirty
 	git push $(PRODUCTION) master
 
 serve:
-	( sleep 2 && firefox 'http://localhost:4000/' ) &
+	( sleep 2 && xdg-open 'http://localhost:4000/' ) &
 	jekyll serve --watch 
 
 not_dirty:
